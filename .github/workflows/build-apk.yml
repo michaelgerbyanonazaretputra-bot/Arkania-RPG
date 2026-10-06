@@ -26,11 +26,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Prepare Android SDK
+      -       - name: Prepare Android SDK
         run: |
           SDKMANAGER=$(find "$ANDROID_SDK_ROOT" -type f -name sdkmanager | head -n 1)
           echo "Using sdkmanager: $SDKMANAGER"
-          chmod +x "$SDKMANAGER"
           "$SDKMANAGER" --licenses < /dev/null || true
           "$SDKMANAGER" "platforms;android-35" "build-tools;35.0.0"
 
